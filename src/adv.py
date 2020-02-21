@@ -1,5 +1,5 @@
 from room import Room
-
+from player import Player
 # Declare all the rooms
 
 room = {
@@ -14,7 +14,7 @@ into the darkness. Ahead to the north, a light flickers in
 the distance, but there is no way across the chasm."""),
 
     'narrow':   Room("Narrow Passage", """The narrow passage bends here from west
-to north. The smell of gold permeates the air."""),
+to north. Te smell of gold permeates the air."""),
 
     'treasure': Room("Treasure Chamber", """You've found the long-lost treasure
 chamber! Sadly, it has already been completely emptied by
@@ -33,9 +33,31 @@ room['narrow'].w_to = room['foyer']
 room['narrow'].n_to = room['treasure']
 room['treasure'].s_to = room['narrow']
 
-#
-# Main
-#
+player = Player('Isaac', room['outside'])
+ 
+ans = input('What direction would you like to go? (n, s, e, w): ')
+
+if ans.lower() == 'n':
+    print(player.room)
+    if player.room.n_to is not None:
+        player.room = player.room.n_to
+        print(player.room.name)
+
+
+    
+
+
+# def get_name(self):
+#     return self.name
+
+# def describe(self):
+#     print ( self.description )
+
+# def link_room(self, room_to_link, direction):
+#     self.linked_rooms[direction] = room_to_link
+# #
+# # Main
+# #
 
 # Make a new player object that is currently in the 'outside' room.
 
