@@ -4,12 +4,10 @@ class Room:
     def __init__(self, name, description):
         self.name = name
         self.description = description
-    
-    def get_name(self):
-        return self.name
-    
-    def describe(self):
-        print( self.description )
-    
+        self.linked_rooms = []
+
+    def __str__(self):
+        output = f"{self.name}\n{self.description}"
+        return output
 
 
